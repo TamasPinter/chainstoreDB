@@ -28,7 +28,7 @@ Employee.init(
     },
     sales_made: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     store_id: {
       type: DataTypes.INTEGER,
