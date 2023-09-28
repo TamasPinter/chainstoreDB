@@ -29,20 +29,20 @@ Sale.belongsTo(Employee, {
   foreignKey: "employee_id",
 });
 
-Store.hasMany(Item, {
-  foreignKey: "store_id",
-});
-
-Item.belongsTo(Store, {
-  foreignKey: "store_id",
-});
-
 Item.hasMany(Sale, {
   foreignKey: "item_id",
 });
 
 Sale.belongsTo(Item, {
   foreignKey: "item_id",
+});
+
+Store.hasMany(Sale, {
+  foreignKey: "store_id",
+});
+
+Sale.belongsTo(Store, {
+  foreignKey: "store_id",
 });
 
 module.exports = { Chain, Store, Employee, Item, Sale };

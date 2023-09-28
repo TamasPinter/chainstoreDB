@@ -19,14 +19,6 @@ Item.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    item_store: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "store",
-        key: "id",
-      },
-    },
     item_department: {
       type: DataTypes.STRING,
       allowNull: false,
