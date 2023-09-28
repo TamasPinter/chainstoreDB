@@ -5,7 +5,7 @@ const itemData = [
     item_name: "Television",
     item_description: " A 50 inch LED TV",
     //have multiple stores listed for item_store
-    item_store: 1 + 2 + 3 + 4,
+    item_store: 1,
     item_department: "Electronics",
     item_price: 499.99,
   },
@@ -48,7 +48,7 @@ const itemData = [
     item_name: "Cell Phone Case",
     item_description: "A standard cell phone case",
     item_store: 2,
-    item_departent: "Phones",
+    item_department: "Phones",
     item_price: 15.99,
   },
   {

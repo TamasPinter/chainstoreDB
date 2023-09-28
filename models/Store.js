@@ -38,10 +38,6 @@ Store.init(
     store_employees: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      references: {
-        model: "employee",
-        key: "store_id",
-      },
     },
   },
   {
