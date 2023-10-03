@@ -10,7 +10,7 @@ Chain.hasMany(Store, {
 });
 
 Store.belongsTo(Chain, {
-  foreignKey: "chain_id",
+  foreignKey: "store_parent",
 });
 
 Store.hasMany(Employee, {

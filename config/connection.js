@@ -12,7 +12,7 @@ const sequelize = process.env.JAWSDB_URL
         host: "localhost",
         dialect: "mysql",
         dialectOptions: {
-          decimanNumbers: true,
+          decimalNumbers: true,
         },
       }
     );

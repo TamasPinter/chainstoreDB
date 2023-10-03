@@ -6,51 +6,30 @@ const { Chain, Store, Employee, Item, Sale } = require("../../models");
 router.get("/", async (req, res) => {
   try {
     const chainData = await Chain.findAll({
-      include: [
-        {
-          model: Store,
-          attributes: [
-            "id",
-            "store_name",
-            "store_number",
-            "store_address",
-            "store_open",
-            "store_parent",
-            "store_employees",
-          ],
-        },
-        {
-          model: Employee,
-          attributes: [
-            "id",
-            "employee_name",
-            "employee_position",
-            "employee_store",
-          ],
-        },
-        {
-          model: Item,
-          attributes: [
-            "id",
-            "item_name",
-            "item_price",
-            "item_stock",
-            "item_store",
-          ],
-        },
-        {
-          model: Sale,
-          attributes: [
-            "id",
-            "sale_date",
-            "sale_item",
-            "sale_quantity",
-            "sale_employee",
-            "sale_store",
-          ],
-        },
-      ],
+      include: {
+        model: Store,
+      },
     });
+    res.status(200).json(chainData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Get a single chain with all stores, employees, and sales
+
+router.get("/:id", async (req, res) => {
+  try {
+    const chainData = await Chain.findByPk(req.params.id, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!chainData) {
+      res.status(404).json({ message: "No chain found!" });
+      return;
+    }
+    res.status(200).json(chainData);
   } catch (err) {
     res.status(500).json(err);
   }

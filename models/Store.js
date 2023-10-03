@@ -31,7 +31,7 @@ Store.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "chain",
+        model: require("./Chain"),
         key: "id",
       },
     },

@@ -19,27 +19,31 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const employeeData = await Employee.findByPk(req.params.id, {
-      include: [
-        {
-          model: Store,
-          attributes: ["id", "store_name"],
-        },
-        {
-          model: Sale,
-          attributes: [
-            "id",
-            "sale_date",
-            "sale_item",
-            "sale_item_two",
-            "sale_item_three",
-            "sale_item_four",
-            "sale_item_five",
-            "sale_employee",
-            "sale_store",
-            "sale_total",
-          ],
-        },
-      ],
+      where: {
+        id: req.params.id,
+
+        include: [
+          {
+            model: Store,
+            attributes: ["id", "store_name"],
+          },
+          {
+            model: Sale,
+            attributes: [
+              "id",
+              "sale_date",
+              "sale_item",
+              "sale_item_two",
+              "sale_item_three",
+              "sale_item_four",
+              "sale_item_five",
+              "sale_employee",
+              "sale_store",
+              "sale_total",
+            ],
+          },
+        ],
+      },
     });
     res.status(200).json(employeeData);
   } catch (err) {

@@ -5,18 +5,7 @@ const { Chain, Store, Employee, Item, Sale } = require("../../models");
 
 router.get("/", async (req, res) => {
   try {
-    const storeData = await Store.findAll({
-      include: [
-        {
-          model: Employee,
-          attributes: ["id", "employee_name"],
-        },
-        {
-          model: Item,
-          attributes: ["id", "item_name", "item_price"],
-        },
-      ],
-    });
+    const storeData = await Store.findAll({});
     res.status(200).json(storeData);
   } catch (err) {
     res.status(500).json(err);
